@@ -2,12 +2,14 @@
 const fs = require('fs')
 const path = require('path')
 const { exit } = require('process')
-const { opendir } = require('fs/promises') 
+const { opendir } = require('fs/promises')
+const { capitalize } = require('./src/replace')
+
 
 
 const handleError = (err) => {
   if (err) {
-    console.error(err)
+    console.error(err);
     throw Error(err)
   } 
 }
@@ -27,6 +29,7 @@ async function rewriteDir(dirName) {
     const dir = await opendir(dirName);
     for await (const dirent of dir) {
       const fullPath = path.join(dirName, dirent.name)
+      console.log(fullPath);
       (dirent.isDirectory()) ? rewriteDir(fullPath) : rewriteSingleFile(fullPath)
     }
   } catch (err) {
@@ -56,5 +59,3 @@ args.forEach(fileName => {
     rewriteSingleFile(fileName)
   }
 })
-
-module.exports.capitalize = capitalize
