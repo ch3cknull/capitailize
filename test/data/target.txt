@@ -1,0 +1,5 @@
+Const Capitalize = (S) => {
+  Return S.Replace(/[\W]([A-Z])(\W+)/G, S => S[0].ToUpperCase() + S.Substr(1))
+}
+
+Module.Exports.Capitalize = Capitalize

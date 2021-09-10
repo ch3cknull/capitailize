@@ -1,0 +1,17 @@
+{
+  "name": "capitalize",
+  "version": "1.0.0",
+  "description": "change you file content capitalize",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.1.1"
+  }
+}
